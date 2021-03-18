@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="LockFreedomTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-18T19:01:42" hostname="phoenix-X541UV" time="4.578">
+  <properties/>
+  <testcase name="testLockFreedom" classname="LockFreedomTest" time="4.578"/>
+  <system-out><![CDATA[=== LockFreedomTest
+--- 0: Performed 0 operations
+--- 1: Performed 0 operations
+--- 2: Performed 392 operations (pause/resumes 1)
+--- 3: Performed 134496 operations (pause/resumes 94)
+------ Done with 134838 operations (pause/resumes 95)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

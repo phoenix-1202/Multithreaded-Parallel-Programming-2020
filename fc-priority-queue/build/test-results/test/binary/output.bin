@@ -1,0 +1,104 @@
+
+= Iteration 1 / 100 =
+ Execution scenario (init part):
+)[add(2), peek(), peek(), poll(), poll()]
+$Execution scenario (parallel part):
+| poll()  | poll() | add(6) |
+| add(-6) | poll() | poll() |
+| poll()  | poll() | peek() |
+ Execution scenario (post part):
+*[poll(), poll(), peek(), add(-8), poll()]
+
+= Iteration 2 / 100 =
+ Execution scenario (init part):
+)[poll(), peek(), add(1), poll(), poll()]
+$Execution scenario (parallel part):
+| poll() | peek()  | add(4) |
+| peek() | add(-8) | poll() |
+| poll() | poll()  | poll() |
+ Execution scenario (post part):
+)[poll(), poll(), poll(), add(5), poll()]
+
+= Iteration 3 / 100 =
+ Execution scenario (init part):
+*[peek(), add(-4), poll(), peek(), poll()]
+$Execution scenario (parallel part):
+| poll()  | peek() | add(-8) |
+| peek()  | peek() | peek()  |
+| add(-2) | peek() | add(-8) |
+ Execution scenario (post part):
+)[poll(), add(4), add(6), peek(), peek()]
+
+CInvalid interleaving found, trying to minimize the scenario below:
+ Execution scenario (init part):
+*[peek(), add(-4), poll(), peek(), poll()]
+$Execution scenario (parallel part):
+| poll()  | peek() | add(-8) |
+| peek()  | peek() | peek()  |
+| add(-2) | peek() | add(-8) |
+ Execution scenario (post part):
+)[poll(), add(4), add(6), peek(), peek()]
+
+CInvalid interleaving found, trying to minimize the scenario below:
+ Execution scenario (init part):
+*[peek(), add(-4), poll(), peek(), poll()]
+$Execution scenario (parallel part):
+| peek()  | peek() | add(-8) |
+| add(-2) | peek() | peek()  |
+|         | peek() | add(-8) |
+ Execution scenario (post part):
+)[poll(), add(4), add(6), peek(), peek()]
+
+CInvalid interleaving found, trying to minimize the scenario below:
+ Execution scenario (init part):
+"[peek(), add(-4), poll(), peek()]
+$Execution scenario (parallel part):
+| peek()  | peek() | add(-8) |
+| add(-2) | peek() | peek()  |
+|         | peek() | add(-8) |
+ Execution scenario (post part):
+)[poll(), add(4), add(6), peek(), peek()]
+
+CInvalid interleaving found, trying to minimize the scenario below:
+ Execution scenario (init part):
+[peek(), add(-4), peek()]
+$Execution scenario (parallel part):
+| peek()  | peek() | add(-8) |
+| add(-2) | peek() | peek()  |
+|         | peek() | add(-8) |
+ Execution scenario (post part):
+)[poll(), add(4), add(6), peek(), peek()]
+
+CInvalid interleaving found, trying to minimize the scenario below:
+ Execution scenario (init part):
+[peek(), add(-4), peek()]
+$Execution scenario (parallel part):
+| add(-2) | peek() | add(-8) |
+|         | peek() | peek()  |
+|         | peek() | add(-8) |
+ Execution scenario (post part):
+)[poll(), add(4), add(6), peek(), peek()]
+0= The execution has hung, see the thread dump =
+ Execution scenario (init part):
+[peek(), add(-4), peek()]
+$Execution scenario (parallel part):
+| add(-2) | peek() | add(-8) |
+|         | peek() | peek()  |
+|         | peek() | add(-8) |
+ Execution scenario (post part):
+)[poll(), add(4), add(6), peek(), peek()]
+
+Thread-2:
+%	sun.misc.Unsafe.park(Native Method)
+C	java.util.concurrent.locks.LockSupport.park(LockSupport.java:304)
+
+Thread-1:
+'	java.lang.Thread.yield(Native Method)
+6	java.util.PriorityQueue.peek(PriorityQueue.java:350)
+-	FCPriorityQueue.peek(FCPriorityQueue.kt:96)
+3	BlockingStackTest.peek(FCPriorityQueueTest.kt:18)
+
+Thread-0:
+'	sun.misc.Unsafe.unpark(Native Method)
+E	java.util.concurrent.locks.LockSupport.unpark(LockSupport.java:141)
+

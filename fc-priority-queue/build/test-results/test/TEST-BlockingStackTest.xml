@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="BlockingStackTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2021-01-20T18:20:40" hostname="phoenix-X541UV" time="508.855">
+  <properties/>
+  <testcase name="modelCheckingTest" classname="BlockingStackTest" time="508.855">
+    <failure message="org.jetbrains.kotlinx.lincheck.LincheckAssertionError: &#10;= The execution has hung, see the thread dump =&#10;Execution scenario (init part):&#10;[peek(), add(-4), peek()]&#10;Execution scenario (parallel part):&#10;| add(-2) | peek() | add(-8) |&#10;|         | peek() | peek()  |&#10;|         | peek() | add(-8) |&#10;Execution scenario (post part):&#10;[poll(), add(4), add(6), peek(), peek()]&#10;Thread-2:&#10;&#9;sun.misc.Unsafe.park(Native Method)&#10;&#9;java.util.concurrent.locks.LockSupport.park(LockSupport.java:304)&#10;Thread-1:&#10;&#9;java.lang.Thread.yield(Native Method)&#10;&#9;java.util.PriorityQueue.peek(PriorityQueue.java:350)&#10;&#9;FCPriorityQueue.peek(FCPriorityQueue.kt:96)&#10;&#9;BlockingStackTest.peek(FCPriorityQueueTest.kt:18)&#10;Thread-0:&#10;&#9;sun.misc.Unsafe.unpark(Native Method)&#10;&#9;java.util.concurrent.locks.LockSupport.unpark(LockSupport.java:141)&#10;" type="org.jetbrains.kotlinx.lincheck.LincheckAssertionError">org.jetbrains.kotlinx.lincheck.LincheckAssertionError: 
+= The execution has hung, see the thread dump =
+Execution scenario (init part):
+[peek(), add(-4), peek()]
+Execution scenario (parallel part):
+| add(-2) | peek() | add(-8) |
+|         | peek() | peek()  |
+|         | peek() | add(-8) |
+Execution scenario (post part):
+[poll(), add(4), add(6), peek(), peek()]
+Thread-2:
+	sun.misc.Unsafe.park(Native Method)
+	java.util.concurrent.locks.LockSupport.park(LockSupport.java:304)
+Thread-1:
+	java.lang.Thread.yield(Native Method)
+	java.util.PriorityQueue.peek(PriorityQueue.java:350)
+	FCPriorityQueue.peek(FCPriorityQueue.kt:96)
+	BlockingStackTest.peek(FCPriorityQueueTest.kt:18)
+Thread-0:
+	sun.misc.Unsafe.unpark(Native Method)
+	java.util.concurrent.locks.LockSupport.unpark(LockSupport.java:141)
+
+	at org.jetbrains.kotlinx.lincheck.LinChecker.check(LinChecker.kt:51)
+	at org.jetbrains.kotlinx.lincheck.LinChecker$Companion.check(LinChecker.kt:182)
+	at org.jetbrains.kotlinx.lincheck.LinCheckerKt.check(LinChecker.kt:195)
+	at BlockingStackTest.modelCheckingTest(FCPriorityQueueTest.kt:31)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.runTestClass(JUnitTestClassExecutor.java:110)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:58)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:38)
+	at org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor.processTestClass(AbstractJUnitTestClassProcessor.java:62)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:51)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at com.sun.proxy.$Proxy2.processTestClass(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.processTestClass(TestWorker.java:119)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:182)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:164)
+	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:414)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:48)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
+	at java.lang.Thread.run(Thread.java:745)
+</failure>
+  </testcase>
+  <system-out><![CDATA[
+= Iteration 1 / 100 =
+Execution scenario (init part):
+[add(2), peek(), peek(), poll(), poll()]
+Execution scenario (parallel part):
+| poll()  | poll() | add(6) |
+| add(-6) | poll() | poll() |
+| poll()  | poll() | peek() |
+Execution scenario (post part):
+[poll(), poll(), peek(), add(-8), poll()]
+
+= Iteration 2 / 100 =
+Execution scenario (init part):
+[poll(), peek(), add(1), poll(), poll()]
+Execution scenario (parallel part):
+| poll() | peek()  | add(4) |
+| peek() | add(-8) | poll() |
+| poll() | poll()  | poll() |
+Execution scenario (post part):
+[poll(), poll(), poll(), add(5), poll()]
+
+= Iteration 3 / 100 =
+Execution scenario (init part):
+[peek(), add(-4), poll(), peek(), poll()]
+Execution scenario (parallel part):
+| poll()  | peek() | add(-8) |
+| peek()  | peek() | peek()  |
+| add(-2) | peek() | add(-8) |
+Execution scenario (post part):
+[poll(), add(4), add(6), peek(), peek()]
+
+Invalid interleaving found, trying to minimize the scenario below:
+Execution scenario (init part):
+[peek(), add(-4), poll(), peek(), poll()]
+Execution scenario (parallel part):
+| poll()  | peek() | add(-8) |
+| peek()  | peek() | peek()  |
+| add(-2) | peek() | add(-8) |
+Execution scenario (post part):
+[poll(), add(4), add(6), peek(), peek()]
+
+Invalid interleaving found, trying to minimize the scenario below:
+Execution scenario (init part):
+[peek(), add(-4), poll(), peek(), poll()]
+Execution scenario (parallel part):
+| peek()  | peek() | add(-8) |
+| add(-2) | peek() | peek()  |
+|         | peek() | add(-8) |
+Execution scenario (post part):
+[poll(), add(4), add(6), peek(), peek()]
+
+Invalid interleaving found, trying to minimize the scenario below:
+Execution scenario (init part):
+[peek(), add(-4), poll(), peek()]
+Execution scenario (parallel part):
+| peek()  | peek() | add(-8) |
+| add(-2) | peek() | peek()  |
+|         | peek() | add(-8) |
+Execution scenario (post part):
+[poll(), add(4), add(6), peek(), peek()]
+
+Invalid interleaving found, trying to minimize the scenario below:
+Execution scenario (init part):
+[peek(), add(-4), peek()]
+Execution scenario (parallel part):
+| peek()  | peek() | add(-8) |
+| add(-2) | peek() | peek()  |
+|         | peek() | add(-8) |
+Execution scenario (post part):
+[poll(), add(4), add(6), peek(), peek()]
+
+Invalid interleaving found, trying to minimize the scenario below:
+Execution scenario (init part):
+[peek(), add(-4), peek()]
+Execution scenario (parallel part):
+| add(-2) | peek() | add(-8) |
+|         | peek() | peek()  |
+|         | peek() | add(-8) |
+Execution scenario (post part):
+[poll(), add(4), add(6), peek(), peek()]
+= The execution has hung, see the thread dump =
+Execution scenario (init part):
+[peek(), add(-4), peek()]
+Execution scenario (parallel part):
+| add(-2) | peek() | add(-8) |
+|         | peek() | peek()  |
+|         | peek() | add(-8) |
+Execution scenario (post part):
+[poll(), add(4), add(6), peek(), peek()]
+Thread-2:
+	sun.misc.Unsafe.park(Native Method)
+	java.util.concurrent.locks.LockSupport.park(LockSupport.java:304)
+Thread-1:
+	java.lang.Thread.yield(Native Method)
+	java.util.PriorityQueue.peek(PriorityQueue.java:350)
+	FCPriorityQueue.peek(FCPriorityQueue.kt:96)
+	BlockingStackTest.peek(FCPriorityQueueTest.kt:18)
+Thread-0:
+	sun.misc.Unsafe.unpark(Native Method)
+	java.util.concurrent.locks.LockSupport.unpark(LockSupport.java:141)
+
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

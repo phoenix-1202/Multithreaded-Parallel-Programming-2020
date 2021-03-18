@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="LinearizabilityTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-18T19:01:17" hostname="phoenix-X541UV" time="24.201">
+  <properties/>
+  <testcase name="testLinearizability" classname="LinearizabilityTest" time="24.201"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
