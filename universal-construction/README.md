@@ -43,7 +43,3 @@ fun decide(value: T): T
 * [`LinearizabilityTest`](test/LinearizabilityTest.kt) проверяет линеаризуемость вашего решения. 
 * [`LockFreedomTest`](test/LockFreedomTest.kt) проверяет что в вашем решении не используются блокировки.
 
-## Формат сдачи
-
-Выполняйте задание в этом репозитории. Инструкции по сдаче заданий находятся в 
-[этом документе](https://docs.google.com/document/d/1GQ0OI_OBkj4kyOvhgRXfacbTI9huF4XJDMOct0Lh5og). 
